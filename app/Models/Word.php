@@ -10,7 +10,7 @@ class Word extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['word', 'in_polish', 'example', 'difficulty'];
+    protected $fillable = ['word', 'example'];
 
     /**
      * Return Polish translation
