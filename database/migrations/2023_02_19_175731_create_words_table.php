@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('words', function (Blueprint $table) {
             $table->id();
             $table->string('word');
-            $table->string('in_polish');
             $table->string('example');
-            $table->integer('difficulty');
             $table->timestamps();
         });
     }
