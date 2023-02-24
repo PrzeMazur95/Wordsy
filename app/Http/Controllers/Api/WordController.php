@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api;
 
+use App\Enum\Api\ExceptionMessages;
+use App\Enum\Api\LoggerMessages;
 use App\Http\Controllers\Controller;
 use App\Models\Word;
 use Illuminate\Http\JsonResponse;
@@ -33,9 +35,9 @@ class WordController extends Controller
         try {
             $words = $this->word::all();
         } catch (\Exception $e) {
-            $this->logger::error('Something went wrong when trying to get all words from database: '. $e);
+            $this->logger::error(LoggerMessages::ALL_WORDS->value ." : ". $e);
 
-            return response()->json('Something went wrong with database connection, please contact with admin', 500);
+            return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value, 500);
         }
 
         return response()->json($words);
