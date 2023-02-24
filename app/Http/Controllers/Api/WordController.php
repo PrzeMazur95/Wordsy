@@ -9,14 +9,18 @@ use App\Models\Word;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 class WordController extends Controller
 {
     /**
      * @param Word $word
+     * @param Log $logger
      */
-    public function __construct(private readonly Word $word)
-    {
+    public function __construct(
+        private readonly Word $word,
+        private readonly Log $logger
+    ){
     }
 
     /**
