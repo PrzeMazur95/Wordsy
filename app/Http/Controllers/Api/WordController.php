@@ -11,11 +11,18 @@ use Illuminate\Http\Response;
 class WordController extends Controller
 {
     /**
+     * @param Word $word
+     */
+    public function __construct(private readonly Word $word)
+    {
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index(): JsonResponse
     {
-        return response()->json(Word::all());
+        return response()->json($this->word::all());
     }
 
     /**
