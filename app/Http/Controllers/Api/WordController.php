@@ -24,11 +24,21 @@ class WordController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display all words.
+     *
+     * @return JsonResponse
      */
     public function index(): JsonResponse
     {
-        return response()->json($this->word::all());
+        try {
+            $words = $this->word::all();
+        } catch (\Exception $e) {
+            $this->logger::error('Something went wrong when trying to get all words from database: '. $e);
+
+            return response()->json('Something went wrong with database connection, please contact with admin', 500);
+        }
+
+        return response()->json($words);
     }
 
     /**
