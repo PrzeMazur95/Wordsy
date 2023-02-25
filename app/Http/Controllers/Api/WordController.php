@@ -50,7 +50,13 @@ class WordController extends Controller
      */
     public function store(StoreWordRequest $request): JsonResponse
     {
-        $this->word->create($request->validated());
+        try {
+            $this->word->create($request->validated());
+        } catch (\Exception $e) {
+            $this->logger::error(LoggerMessages::STORE_WORD->value ." : ". $e);
+
+            return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value, 500);
+        }
 
         return response()->json(JsonResponseMessages::SAVED->value);
     }
