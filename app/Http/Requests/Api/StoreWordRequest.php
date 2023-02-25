@@ -22,7 +22,7 @@ class StoreWordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required', 'unique:words', 'string'],
+            'word'=>['required', 'unique:words', 'string'],
             'example'=>['required','min:3', 'string']
         ];
     }
