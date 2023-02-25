@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
 use App\Enum\Api\ExceptionMessages;
+use App\Enum\Api\JsonResponseMessages;
 use App\Enum\Api\LoggerMessages;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\StoreWordRequest;
 use App\Models\Word;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -46,9 +48,11 @@ class WordController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): Response
+    public function store(StoreWordRequest $request): JsonResponse
     {
-        //
+        $this->word->create($request->validated());
+
+        return response()->json(JsonResponseMessages::SAVED->value);
     }
 
     /**
