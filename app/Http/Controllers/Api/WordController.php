@@ -82,15 +82,20 @@ class WordController extends Controller
      */
     public function update(UpdateWordRequest $request, int $id): JsonResponse
     {
-        $word = $this->word->find($id);
+        try {
+            $word = $this->word->find($id);
+            if(!$word) {
 
-        if(!$word) {
+                return response()->json('there is no such entity', 404);
+            } else {
+                $word->update($request->validated());
 
-            return response()->json('there is no such entity', 404);
-        } else {
-            $word->update($request->validated());
+                return response()->json('udpated');
+            }
+        } catch (\Exception $e) {
+            $this->logger::error(LoggerMessages::UPDATE_WORD->value ." : ". $e);
 
-            return response()->json('udpated');
+            return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value, 500);
         }
     }
 
