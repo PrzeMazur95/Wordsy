@@ -9,6 +9,7 @@ use App\Enum\Api\JsonResponseMessages;
 use App\Enum\Api\LoggerMessages;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\StoreWordRequest;
+use App\Http\Requests\Api\UpdateWordRequest;
 use App\Models\Word;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -71,10 +72,23 @@ class WordController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param UpdateWordRequest $request
+     * @param int $id
+     * @return JsonResponse
      */
-    public function update(Request $request, string $id): Response
+    public function update(UpdateWordRequest $request, int $id): JsonResponse
     {
-        //
+        $word = $this->word->find($id);
+
+        if(!$word) {
+
+            return response()->json('there is no such entity', 404);
+        } else {
+            $word->update($request->validated());
+
+            return response()->json('udpated');
+        }
     }
 
     /**
