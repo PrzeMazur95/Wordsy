@@ -86,11 +86,11 @@ class WordController extends Controller
             $word = $this->word->find($id);
             if(!$word) {
 
-                return response()->json('there is no such entity', 404);
+                return response()->json(JsonResponseMessages::NOT_FOUND->value, 404);
             } else {
                 $word->update($request->validated());
 
-                return response()->json('udpated');
+                return response()->json(JsonResponseMessages::UPDATED->value);
             }
         } catch (\Exception $e) {
             $this->logger::error(LoggerMessages::UPDATE_WORD->value ." : ". $e);
