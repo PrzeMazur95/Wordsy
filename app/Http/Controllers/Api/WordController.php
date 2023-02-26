@@ -47,7 +47,10 @@ class WordController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created word in storage.
+     *
+     * @param StoreWordRequest $request
+     * @return JsonResponse
      */
     public function store(StoreWordRequest $request): JsonResponse
     {
@@ -71,7 +74,7 @@ class WordController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified word in storage.
      *
      * @param UpdateWordRequest $request
      * @param int $id
