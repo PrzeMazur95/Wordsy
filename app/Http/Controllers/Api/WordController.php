@@ -68,6 +68,9 @@ class WordController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param int $id
+     * @return JsonResponse
      */
     public function show(int $id): JsonResponse
     {
