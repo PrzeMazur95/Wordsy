@@ -71,13 +71,19 @@ class WordController extends Controller
      */
     public function show(int $id): JsonResponse
     {
-        $word = $this->word->find($id);
+        try{
+            $word = $this->word->find($id);
+            if(!$word) {
 
-        if(!$word) {
-            return response()->json(JsonResponseMessages::NOT_FOUND->value, 404);
+                return response()->json(JsonResponseMessages::NOT_FOUND->value, 404);
+            }
+
+            return response()->json($word);
+        } catch (\Exception $e) {
+            $this->logger::error(LoggerMessages::SHOW_WORD->value ." : ". $e);
+
+            return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value, 500);
         }
-
-        return response()->json($word);
     }
 
     /**
