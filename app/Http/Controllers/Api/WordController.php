@@ -8,6 +8,7 @@ use App\Enum\Api\ExceptionMessages;
 use App\Enum\Api\JsonResponseMessages;
 use App\Enum\Api\LoggerMessages;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\ShowWordRequest;
 use App\Http\Requests\Api\StoreWordRequest;
 use App\Http\Requests\Api\UpdateWordRequest;
 use App\Models\Word;
@@ -68,9 +69,15 @@ class WordController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): Response
+    public function show(int $id): JsonResponse
     {
-        //
+        $word = $this->word->find($id);
+
+        if(!$word) {
+            return response()->json(JsonResponseMessages::NOT_FOUND->value, 404);
+        }
+
+        return response()->json($word);
     }
 
     /**
