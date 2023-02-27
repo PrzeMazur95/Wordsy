@@ -11,9 +11,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ShowWordRequest;
 use App\Http\Requests\Api\StoreWordRequest;
 use App\Http\Requests\Api\UpdateWordRequest;
+use App\Http\Resources\WordResource;
 use App\Models\Word;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
@@ -32,9 +34,9 @@ class WordController extends Controller
     /**
      * Display all words.
      *
-     * @return JsonResponse
+     * @return JsonResponse|AnonymousResourceCollection
      */
-    public function index(): JsonResponse
+    public function index(): JsonResponse|AnonymousResourceCollection
     {
         try {
             $words = $this->word::all();
@@ -44,7 +46,7 @@ class WordController extends Controller
             return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value, 500);
         }
 
-        return response()->json($words);
+        return WordResource::collection($words);
     }
 
     /**
