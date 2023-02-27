@@ -69,12 +69,10 @@ class WordController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
      * @param int $id
-     * @return JsonResponse
+     * @return WordResource|JsonResponse
      */
-    public function show(int $id): JsonResponse
+    public function show(int $id): WordResource|JsonResponse
     {
         try{
             $word = $this->word->find($id);
@@ -83,7 +81,7 @@ class WordController extends Controller
                 return response()->json(JsonResponseMessages::NOT_FOUND->value, 404);
             }
 
-            return response()->json($word);
+            return new WordResource($word);
         } catch (\Exception $e) {
             $this->logger::error(LoggerMessages::SHOW_WORD->value ." : ". $e);
 
