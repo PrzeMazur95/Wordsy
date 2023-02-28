@@ -120,4 +120,15 @@ class WordController extends Controller
     {
         //
     }
+
+    /**
+     * Find specific word by id
+     *
+     * @param int $id
+     * @return Word|null
+     */
+    private function findWord(int $id): Word|null
+    {
+        return $this->word->find($id);
+    }
 }
