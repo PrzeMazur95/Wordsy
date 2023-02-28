@@ -73,7 +73,7 @@ class WordController extends Controller
     public function show(int $id): WordResource|JsonResponse
     {
         try{
-            $word = $this->word->find($id);
+            $word = $this->findWord($id);
             if(!$word) {
 
                 return response()->json(JsonResponseMessages::NOT_FOUND->value, 404);
@@ -97,7 +97,7 @@ class WordController extends Controller
     public function update(UpdateWordRequest $request, int $id): JsonResponse
     {
         try {
-            $word = $this->word->find($id);
+            $word = $this->findWord($id);
             if(!$word) {
 
                 return response()->json(JsonResponseMessages::NOT_FOUND->value, 404);
