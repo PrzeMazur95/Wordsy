@@ -14,7 +14,6 @@ use App\Http\Resources\WordResource;
 use App\Models\Word;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
 class WordController extends Controller
