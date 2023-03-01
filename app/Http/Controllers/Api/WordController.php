@@ -114,11 +114,16 @@ class WordController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified word from storage.
+     *
+     * @param int $id
+     * @return JsonResponse
      */
-    public function destroy(string $id): Response
+    public function destroy(int $id): JsonResponse
     {
-        //
+        $this->findWord($id)->delete();
+
+        return response()->json('entity deletd');
     }
 
     /**
