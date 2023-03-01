@@ -120,9 +120,20 @@ class WordController extends Controller
      */
     public function destroy(int $id): JsonResponse
     {
-        $this->findWord($id)->delete();
+        try{
+           $word = $this->findWord($id);
+           if(!$word) {
 
-        return response()->json('entity deletd');
+               return response()->json('entity nt found');
+           }
+            $word->delete();
+
+            return response()->json('entity deletd');
+        } catch (\Exception $ex) {
+
+            return response()->json('there wa an error' .$ex);
+        }
+
     }
 
     /**
