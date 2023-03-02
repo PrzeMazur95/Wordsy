@@ -10,4 +10,5 @@ enum LoggerMessages: string
     case STORE_WORD = "Something went wrong when trying save a word through API";
     case UPDATE_WORD = "Something went wrong when trying to update provided word through API";
     case SHOW_WORD = "Something went wrong when trying to get specific word through API";
+    case DELETE_WORD = "Something went wrong when trying to delete specific word through API";
 }
