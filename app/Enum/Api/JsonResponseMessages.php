@@ -9,4 +9,5 @@ enum JsonResponseMessages: string
     case SAVED = "New entity has been saved";
     case NOT_FOUND = 'There is no such entity with provided id';
     case UPDATED = 'This entity has been successfully updated';
+    case DELETED = 'This entity has been successfully deleted';
 }
