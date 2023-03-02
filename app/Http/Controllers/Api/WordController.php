@@ -124,14 +124,14 @@ class WordController extends Controller
            $word = $this->findWord($id);
            if(!$word) {
 
-               return response()->json('entity nt found');
+               return response()->json(JsonResponseMessages::NOT_FOUND->value);
            }
             $word->delete();
 
-            return response()->json('entity deletd');
-        } catch (\Exception $ex) {
+            return response()->json(JsonResponseMessages::DELETED->value);
+        } catch (\Exception $e) {
 
-            return response()->json('there wa an error' .$ex);
+            return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value);
         }
 
     }
