@@ -130,6 +130,7 @@ class WordController extends Controller
 
             return response()->json(JsonResponseMessages::DELETED->value);
         } catch (\Exception $e) {
+            $this->logger::error(LoggerMessages::DELETE_WORD->value ." : ". $e);
 
             return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value);
         }
