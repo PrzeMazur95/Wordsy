@@ -4,4 +4,4 @@ import { createApp } from "vue";
 import app from "./app.vue";
 
 createApp(app).mount("#app");
-import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/js/bootstrap.js";
