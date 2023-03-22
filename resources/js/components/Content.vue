@@ -41,12 +41,22 @@ export default {
     methods: {
         logtext() {
             console.log('test text');
+        },
+        fetchWords() {
+            fetch('api/Words')
+                .then(result => result.json())
+                .then(result => {
+                    console.log(result.data);
+                });
         }
     },
     data() {
         return {
             count: 0
         }
+    },
+    created() {
+        this.fetchWords();
     }
 }
 </script>
