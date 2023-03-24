@@ -33,16 +33,6 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="card col-3" v-for="word in words" v-bind:key="word.id">
-            <img class="card-img-top" src="https://picsum.photos/id/237/800/1200" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{ word.word }}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
 </template>
 
 <script>
