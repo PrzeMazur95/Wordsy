@@ -1,34 +1,26 @@
 <template>
     <div class="row">
-        <div class="card col-3">
+        <div class="card col-4">
             <img class="card-img-top" src="https://picsum.photos/id/237/800/1200" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Add new Word!</h5>
+                <p class="card-text">Do you have some new word which you should remember? Don't wait, save it!</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
-        <div class="card col-3" @click="logtext">
+        <div class="card col-4" @click="logtext">
             <img class="card-img-top" src="https://picsum.photos/id/227/800/1200" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">All words</h5>
+                <p class="card-text">Do you want to see all stored words? It would be a long list... but that is great! Let's go !</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
-        <div class="card col-3" @click="count++">
+        <div class="card col-4">
             <img class="card-img-top" src="https://picsum.photos/id/217/800/1200" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{ count }}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card col-3">
-            <img class="card-img-top" src="https://picsum.photos/id/247/800/1200" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Chellenge!</h5>
+                <p class="card-text">Do you want to chellenge yourself? Go on and check, if you remember all your stored words</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
