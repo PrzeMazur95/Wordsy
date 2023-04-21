@@ -1,8 +1,8 @@
 <template>
     <form>
         <div class="form-group text-center mt-2 mx-4">
-            <label for="exampleFormControlInput1">Enter new word !</label>
-            <input class="form-control text-center" id="exampleFormControlInput1" placeholder="what have you learned today?">
+            <label for="word">Enter new word !</label>
+            <input class="form-control text-center" v-model="word.name" placeholder="what have you learned today?">
         </div>
         <div class="form-group text-center m-4">
             <label for="exampleFormControlInput1">polish translation</label>
@@ -13,7 +13,7 @@
             <textarea class="form-control text-center font-light" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="text-center">
-            <button class="btn btn-dark">
+            <button :class="[ word.name ? 'btn-success' : 'btn-dark', 'btn']">
                 Save new Word
             </button>
         </div>
@@ -23,5 +23,12 @@
 <script>
 export default {
     name: "addWordForm",
+    data: function () {
+        return {
+            word: {
+                name: ""
+            }
+        }
+    }
 }
 </script>
