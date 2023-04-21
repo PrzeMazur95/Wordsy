@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit.prevent>
         <div class="form-group text-center mt-2 mx-4">
             <label for="word">Enter new word !</label>
             <input class="form-control text-center" v-model="word.name" placeholder="what have you learned today?">
