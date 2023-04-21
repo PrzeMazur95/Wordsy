@@ -5,8 +5,8 @@
             <input class="form-control text-center" v-model="word.name" placeholder="what have you learned today?">
         </div>
         <div class="form-group text-center m-4">
-            <label for="exampleFormControlInput1">polish translation</label>
-            <input class="form-control text-center" id="exampleFormControlInput1" placeholder="what have you learned today?">
+            <label for="polishTranslation">polish translation</label>
+            <input class="form-control text-center" id="polishTranslation" v-model="word.polishTranslation" placeholder="what have you learned today?">
         </div>
         <div class="form-group text-center m-4">
             <label for="exampleFormControlTextarea1">Description - type some hint</label>
@@ -29,7 +29,8 @@ export default {
     data: function () {
         return {
             word: {
-                name: ""
+                name: "",
+                polishTranslation: ""
             }
         }
     },
