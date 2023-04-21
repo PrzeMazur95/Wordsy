@@ -1,36 +1,20 @@
 <template>
-    <form class="m-2">
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <form>
+        <div class="form-group text-center mt-2 mx-4">
+            <label for="exampleFormControlInput1">Enter new word !</label>
+            <input class="form-control text-center" id="exampleFormControlInput1" placeholder="what have you learned today?">
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+        <div class="form-group text-center m-4">
+            <label for="exampleFormControlInput1">polish translation</label>
+            <input class="form-control text-center" id="exampleFormControlInput1" placeholder="what have you learned today?">
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect2">Example multiple select</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+        <div class="form-group text-center m-4">
+            <label for="exampleFormControlTextarea1">Description - type some hint</label>
+            <textarea class="form-control text-center font-light" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <div class="justify-content-center">
+        <div class="text-center">
             <button class="btn btn-dark">
-                some text
+                Save new Word
             </button>
         </div>
     </form>
