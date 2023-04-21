@@ -9,8 +9,8 @@
             <input class="form-control text-center" id="polishTranslation" v-model="word.polishTranslation" placeholder="what have you learned today?">
         </div>
         <div class="form-group text-center m-4">
-            <label for="exampleFormControlTextarea1">Description - type some hint</label>
-            <textarea class="form-control text-center font-light" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="description">Description</label>
+            <textarea class="form-control text-center font-light" id="description" rows="3" v-model="word.description"></textarea>
         </div>
         <div class="text-center">
             <button
@@ -30,7 +30,8 @@ export default {
         return {
             word: {
                 name: "",
-                polishTranslation: ""
+                polishTranslation: "",
+                description: ""
             }
         }
     },
