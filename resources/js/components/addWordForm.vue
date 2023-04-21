@@ -13,7 +13,10 @@
             <textarea class="form-control text-center font-light" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="text-center">
-            <button :class="[ word.name ? 'btn-success' : 'btn-dark', 'btn']">
+            <button
+                :class="[ word.name ? 'btn-success' : 'btn-dark', 'btn']"
+                @click="addWord()"
+            >
                 Save new Word
             </button>
         </div>
@@ -28,6 +31,15 @@ export default {
             word: {
                 name: ""
             }
+        }
+    },
+    methods: {
+        addWord() {
+            if( this.word.name === "") {
+                alert('You have to provide a word');
+                return;
+            }
+            alert(this.word.name)
         }
     }
 }
