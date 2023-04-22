@@ -41,7 +41,18 @@ export default {
                 alert('You have to provide a word');
                 return;
             }
-            alert(this.word.name)
+            axios.post('api/Words', {
+                word: this.word.name,
+                example: this.word.description
+            })
+                .then( response => {
+                    if( response.status === 200 ){
+                        alert('Word has been added!');
+                    }
+                })
+                .catch( error => {
+                    console.log( error )
+                })
         }
     }
 }
