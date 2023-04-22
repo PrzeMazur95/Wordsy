@@ -14,7 +14,7 @@
         </div>
         <div class="text-center">
             <button
-                :class="[ word.name ? 'btn-success' : 'btn-dark', 'btn']"
+                :class="[ word.name && word.example  && word.polishTranslation? 'btn-success' : 'btn-dark', 'btn']"
                 @click="addWord()"
             >
                 Save new Word
@@ -37,8 +37,8 @@ export default {
     },
     methods: {
         addWord() {
-            if( this.word.name === "") {
-                alert('You have to provide a word');
+            if( this.word.name === "" || this.word.example === "" || this.word.polishTranslation) {
+                alert('You have to provide a word, translation and some example');
                 return;
             }
             axios.post('api/Words', {
