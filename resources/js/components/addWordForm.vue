@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent>
+    <form ref="newWordForm" @submit.prevent>
         <div class="form-group text-center mt-2 mx-4 ">
             <p class ="lead">Enter new word !</p>
             <input class="form-control text-center" v-model="word.name" placeholder="what have you learned today?">
@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         addWord() {
-            if( this.word.name === "" || this.word.example === "" || this.word.polishTranslation) {
+            if( this.word.name === "" || this.word.polishTranslation === "" || this.word.example === "") {
                 alert('You have to provide a word, translation and some example');
                 return;
             }
@@ -47,6 +47,7 @@ export default {
             })
                 .then( response => {
                     if( response.status === 200 ){
+                        this.$refs.newWordForm.reset();
                         alert('Word has been added!');
                     }
                 })
