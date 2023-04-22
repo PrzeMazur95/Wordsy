@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('word_id')->constrained()->onDelete('cascade');
             $table->string('translation');
-            $table->string('example');
             $table->timestamps();
         });
     }
