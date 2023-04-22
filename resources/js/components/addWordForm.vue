@@ -5,12 +5,12 @@
             <input class="form-control text-center" v-model="word.name" placeholder="what have you learned today?">
         </div>
         <div class="form-group text-center m-4">
-            <label for="polishTranslation">polish translation</label>
-            <input class="form-control text-center" id="polishTranslation" v-model="word.polishTranslation" placeholder="what have you learned today?">
+            <label for="polishTranslation">Provide a translation !</label>
+            <input class="form-control text-center" id="polishTranslation" v-model="word.polishTranslation" placeholder="what it means?">
         </div>
         <div class="form-group text-center m-4">
-            <label for="description">Description</label>
-            <textarea class="form-control text-center font-light" id="description" rows="3" v-model="word.description"></textarea>
+            <label for="example">Give some example !</label>
+            <textarea class="form-control text-center font-light" id="example" rows="3" v-model="word.example" placeholder="Describe to better remember..."></textarea>
         </div>
         <div class="text-center">
             <button
@@ -31,7 +31,7 @@ export default {
             word: {
                 name: "",
                 polishTranslation: "",
-                description: ""
+                example: ""
             }
         }
     },
@@ -43,7 +43,7 @@ export default {
             }
             axios.post('api/Words', {
                 word: this.word.name,
-                example: this.word.description
+                example: this.word.example
             })
                 .then( response => {
                     if( response.status === 200 ){
