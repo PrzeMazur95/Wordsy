@@ -43,6 +43,7 @@ export default {
             }
             axios.post('api/Words', {
                 word: this.word.name,
+                polishTranslation: this.word.polishTranslation,
                 example: this.word.example
             })
                 .then( response => {
