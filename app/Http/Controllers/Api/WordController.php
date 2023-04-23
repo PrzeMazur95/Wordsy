@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\StoreWordRequest;
 use App\Http\Requests\Api\UpdateWordRequest;
 use App\Http\Resources\WordResource;
+use App\Models\PolishTranslation;
 use App\Models\Word;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -20,10 +21,12 @@ class WordController extends Controller
 {
     /**
      * @param Word $word
+     * @param PolishTranslation $polishTranslation
      * @param Log $logger
      */
     public function __construct(
         private readonly Word $word,
+        private readonly PolishTranslation $polishTranslation,
         private readonly Log $logger
     ){
     }
@@ -55,7 +58,11 @@ class WordController extends Controller
     public function store(StoreWordRequest $request): JsonResponse
     {
         try {
-            $this->word->create($request->validated());
+            $word = $this->word->create($request->validated());
+            $translation = $this->polishTranslation->make([
+                'translation' => $request->validated()['polishTranslation']
+            ]);
+            $word->PolishTranslation()->save($translation);
         } catch (\Exception $e) {
             $this->logger::error(LoggerMessages::STORE_WORD->value ." : ". $e);
 
