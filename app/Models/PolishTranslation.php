@@ -10,6 +10,8 @@ class PolishTranslation extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['translation'];
+
     /**
      * Return relation between Polish translation and original word
      *
