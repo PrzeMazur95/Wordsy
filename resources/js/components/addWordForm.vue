@@ -1,5 +1,8 @@
 <template>
     <form ref="newWordForm" @submit.prevent>
+        <div>
+            <p id="axiosResponse" v-html="axiosResponse"></p>
+        </div>
         <div class="form-group text-center mt-2 mx-4 ">
             <p class ="lead">Enter new word !</p>
             <input class="form-control text-center" v-model="word.name" placeholder="what have you learned today?">
@@ -32,7 +35,8 @@ export default {
                 name: "",
                 polishTranslation: "",
                 example: ""
-            }
+            },
+            axiosResponse: ''
         }
     },
     methods: {
@@ -48,11 +52,15 @@ export default {
             })
                 .then( response => {
                     if( response.status === 200 ){
-                        this.$refs.newWordForm.reset();
-                        alert('Word has been added!');
+                        this.axiosResponse = 'Success';
+                        this.word.name = '';
+                        this.word.polishTranslation = '';
+                        this.word.example = '';
+                        // this.$refs.newWordForm.reset();
                     }
                 })
                 .catch( error => {
+                    this.axiosResponse = 'Failed';
                     console.log( error )
                 })
         }
