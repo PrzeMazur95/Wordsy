@@ -23,6 +23,7 @@ class StoreWordRequest extends FormRequest
     {
         return [
             'word'=>['required', 'unique:words', 'string'],
+            'polishTranslation'=>['required', 'string'],
             'example'=>['required','min:3', 'string']
         ];
     }
