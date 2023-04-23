@@ -1,5 +1,5 @@
 <template>
-    <form ref="newWordForm" @submit.prevent>
+    <form @submit.prevent>
         <div>
             <p id="axiosResponse" v-html="axiosResponse"></p>
         </div>
@@ -56,7 +56,6 @@ export default {
                         this.word.name = '';
                         this.word.polishTranslation = '';
                         this.word.example = '';
-                        // this.$refs.newWordForm.reset();
                     }
                 })
                 .catch( error => {
