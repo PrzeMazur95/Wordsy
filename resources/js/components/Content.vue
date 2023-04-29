@@ -6,7 +6,7 @@
                 <h5 class="card-title text-center">Add new Word!</h5>
                 <p class="card-text text-center">Do you have some new word which you should remember? Don't wait, save it!</p>
             </div>
-            <a href="#" class="btn btn-primary">Add new!</a>
+            <a href="/addWord" class="btn btn-primary">Add new!</a>
         </div>
         <div class="card col-4" @click="logtext">
             <img class="card-img-top" src="https://picsum.photos/id/227/800/1200" alt="Card image cap">
