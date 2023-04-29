@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent>
-        <div>
+        <div class='alert text-center' :class="responseDivClass" role="alert">
             <p id="axiosResponse" v-html="axiosResponse"></p>
         </div>
         <div class="form-group text-center mt-2 mx-4 ">
@@ -36,7 +36,8 @@ export default {
                 polishTranslation: "",
                 example: ""
             },
-            axiosResponse: ''
+            axiosResponse: '',
+            responseDivClass: ''
         }
     },
     methods: {
@@ -53,6 +54,7 @@ export default {
                 .then( response => {
                     if( response.status === 200 ){
                         this.axiosResponse = 'Success';
+                        this.responseDivClass = 'alert-success';
                         this.word.name = '';
                         this.word.polishTranslation = '';
                         this.word.example = '';
@@ -60,6 +62,7 @@ export default {
                 })
                 .catch( error => {
                     this.axiosResponse = 'Failed';
+                    this.responseDivClass = 'alert-danger';
                     console.log( error )
                 })
         }
