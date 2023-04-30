@@ -3,17 +3,17 @@
         <div class='alert text-center' :class="responseDivClass" role="alert">
             <p id="axiosResponse" v-html="axiosResponse"></p>
         </div>
-        <div class="form-group text-center mt-2 mx-4 ">
+        <div class="form-group text-center mx-4 ">
             <p class ="lead">Enter new word !</p>
             <input class="form-control text-center" v-model="word.name" placeholder="what have you learned today?">
         </div>
-        <div class="form-group text-center m-4">
+        <div class="form-group text-center mx-4 my-2">
             <p class ="lead">Provide a translation !</p>
             <input class="form-control text-center" id="polishTranslation" v-model="word.polishTranslation" placeholder="what it means?">
         </div>
         <div class="form-group text-center mx-4 mb-2">
             <p class ="lead">Give some example !</p>
-            <textarea class="form-control text-center font-light" id="example" rows="3" v-model="word.example" placeholder="Describe to better remember..."></textarea>
+            <textarea class="form-control text-center font-light" id="example" rows="1" v-model="word.example" placeholder="describe to better remember..."></textarea>
         </div>
         <div class="text-center">
             <button
