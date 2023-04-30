@@ -1,4 +1,7 @@
 <template>
+    <div class="text-center mt-3">
+        <p class="lead">Last added words </p>
+    </div>
     <table class="table text-center mt-2">
         <thead>
         <tr>
