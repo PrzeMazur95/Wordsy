@@ -164,7 +164,7 @@ class WordController extends Controller
     public function amountOfWords(int $size): JsonResponse|AnonymousResourceCollection
     {
         try {
-            $words = $this->word::orderByDesc('id')->take($size)->get();
+            $words = $this->word::with('PolishTranslation')->orderByDesc('id')->take($size)->get();
         } catch (\Exception $e) {
             $this->logger::error(LoggerMessages::AMOUNT_OF_WORDS->value ." : ". $e);
 
