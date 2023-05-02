@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource("Words", WordController::class);
+Route::get("Words/amountOfWords/{amount}", [WordController::class, 'amountOfWords'])->name('Words.amountOfWords');
