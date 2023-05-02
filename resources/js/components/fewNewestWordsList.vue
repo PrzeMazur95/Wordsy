@@ -25,10 +25,6 @@ export default {
     name: "fewNewestWordlist",
     data() {
         return {
-            playlist: [
-                'word 1',
-                'word 2'
-            ],
             words: []
         }
     },
