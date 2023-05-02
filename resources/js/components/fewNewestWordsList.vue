@@ -11,10 +11,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(word, index) in playlist" :key="index">
-            <th scope="row">{{index}}</th>
-            <td>{{word}}</td>
-            <td>{{word}}</td>
+        <tr v-for="(word, index) in words" :key="index">
+            <th scope="row">{{word.id}}</th>
+            <td>{{word.word}}</td>
+            <td>{{word.example}}</td>
         </tr>
         </tbody>
     </table>
@@ -28,8 +28,23 @@ export default {
             playlist: [
                 'word 1',
                 'word 2'
-            ]
+            ],
+            words: []
         }
+    },
+    methods: {
+        getSmallList () {
+            axios.get('api/Words/amountOfWords/3')
+                .then ( response => {
+                    this.words = response.data.data
+                })
+                .catch( error => {
+                    console.log( error);
+                })
+        }
+    },
+    created() {
+        this.getSmallList();
     }
 }
 </script>
