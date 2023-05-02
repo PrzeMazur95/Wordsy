@@ -154,4 +154,23 @@ class WordController extends Controller
     {
         return $this->word->find($id);
     }
+
+    /**
+     * Take specific amount of words
+     *
+     * @param int $size
+     * @return JsonResponse|AnonymousResourceCollection
+     */
+    public function amountOfWords(int $size): JsonResponse|AnonymousResourceCollection
+    {
+        try {
+            $words = $this->word::take($size)->get();
+        } catch (\Exception $e) {
+            $this->logger::error(LoggerMessages::AMOUNT_OF_WORDS->value ." : ". $e);
+
+            return response()->json(ExceptionMessages::GENERAL_DB_ERROR->value, 500);
+        }
+
+        return WordResource::collection($words);
+    }
 }
