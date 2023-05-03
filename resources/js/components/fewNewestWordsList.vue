@@ -14,7 +14,7 @@
         <tr v-for="(word, index) in words" :key="index">
             <th scope="row">{{word.id}}</th>
             <td>{{word.word}}</td>
-            <td>{{word.example}}</td>
+            <td>{{word.translation}}</td>
         </tr>
         </tbody>
     </table>
