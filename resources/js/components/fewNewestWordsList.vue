@@ -23,24 +23,6 @@
 <script>
 export default {
     name: "fewNewestWordlist",
-    data() {
-        return {
-            words: []
-        }
-    },
-    methods: {
-        getSmallList () {
-            axios.get('api/Words/amountOfWords/3')
-                .then ( response => {
-                    this.words = response.data.data
-                })
-                .catch( error => {
-                    console.log( error);
-                })
-        }
-    },
-    created() {
-        this.getSmallList();
-    }
+    props: ['words']
 }
 </script>

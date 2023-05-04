@@ -1,7 +1,7 @@
 <template>
     <navbar></navbar>
     <addword></addword>
-    <fewnewestwordslist></fewnewestwordslist>
+    <fewnewestwordslist :words="words"></fewnewestwordslist>
 </template>
 
 <script>
@@ -14,6 +14,25 @@ export default {
         Navbar,
         Addword,
         Fewnewestwordslist
+    },
+    data: function () {
+        return {
+            words: []
+        }
+    },
+    methods: {
+        getSmallList () {
+            axios.get('api/Words/amountOfWords/3')
+                .then ( response => {
+                    this.words = response.data.data
+                })
+                .catch( error => {
+                    console.log( error);
+                })
+        }
+    },
+    created() {
+        this.getSmallList();
     }
 }
 </script>
