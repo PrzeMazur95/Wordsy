@@ -7,10 +7,10 @@
         <title>List of all Words!</title>
 
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        @vite(['resources/js/allWordList.js', 'resources/css/allWordList.css'])
+        @vite(['resources/js/allWordsList.js', 'resources/css/allWordList.css'])
     </head>
     <body>
-        <div id="allWordList">
+        <div id="allWordsList">
             <app></app>
         </div>
     </body>
