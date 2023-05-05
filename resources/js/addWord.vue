@@ -1,6 +1,6 @@
 <template>
     <navbar></navbar>
-    <addword></addword>
+    <addword v-on:newWordAdded="getSmallList()"></addword>
     <fewnewestwordslist :words="words"></fewnewestwordslist>
 </template>
 
