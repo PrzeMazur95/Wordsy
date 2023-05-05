@@ -53,6 +53,7 @@ export default {
             })
                 .then( response => {
                     if( response.status === 200 ){
+                        this.$emit('newWordAdded');
                         this.axiosResponse = 'Success';
                         this.responseDivClass = 'alert-success';
                         this.word.name = '';
