@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/addWord', function () {
     return view('addWord');
 });
+Route::get('/allWordList', function () {
+    return view('addWordList');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
