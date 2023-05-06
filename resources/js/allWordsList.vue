@@ -10,22 +10,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
+            <listitem></listitem>
         </tbody>
     </table>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue'
+import Listitem from './components/listItem.vue'
 export default {
     name: "allWordsList",
     components: {
-        Navbar
+        Navbar,
+        Listitem
     },
     data: function () {
         return {
