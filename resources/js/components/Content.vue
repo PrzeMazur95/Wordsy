@@ -14,7 +14,7 @@
                 <h5 class="card-title text-center">All words</h5>
                 <p class="card-text text-center">Do you want to see all stored words? It would be a long list... but that is great! Let's go !</p>
             </div>
-            <a href="#" class="btn btn-primary">Check all!</a>
+            <a href="/allWordList" class="btn btn-primary">Check all!</a>
         </div>
         <div class="card col-4">
             <img class="card-img-top" src="https://picsum.photos/id/217/800/1200" alt="Card image cap">
