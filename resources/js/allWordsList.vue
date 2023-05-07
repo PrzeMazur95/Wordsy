@@ -3,14 +3,14 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">Id</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Handle</th>
         </tr>
         </thead>
-        <tbody>
-            <listitem></listitem>
+        <tbody v-for="(word, index) in words" :key="index">
+            <listitem :word="word"></listitem>
         </tbody>
     </table>
 </template>
