@@ -2,7 +2,7 @@
     <navbar></navbar>
     <table class="table">
         <thead>
-        <tr>
+        <tr class="text-center">
             <th scope="col">Id</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
