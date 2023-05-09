@@ -4,8 +4,8 @@
         <td>{{ word.word }}</td>
         <td>{{word.translation}}</td>
         <td>
-            <button type="button" class="btn btn-outline-primary btn-sm mx-1">Primary</button>
-            <button type="button" class="btn btn-outline-danger btn-sm">Danger</button>
+            <button type="button" class="btn btn-outline-primary btn-sm mx-1">Edit</button>
+            <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
         </td>
     </tr>
 </template>
