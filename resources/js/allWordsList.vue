@@ -1,18 +1,22 @@
 <template>
     <navbar></navbar>
-    <table class="table">
-        <thead>
-        <tr class="text-center">
-            <th scope="col">Id</th>
-            <th scope="col">Word</th>
-            <th scope="col">Translation</th>
-            <th scope="col">Options</th>
-        </tr>
-        </thead>
-        <tbody v-for="(word, index) in words" :key="index">
-            <listitem :word="word"></listitem>
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                <tr class="text-center table-light">
+                    <th class="col-2">Id</th>
+                    <th class="col-4">Word</th>
+                    <th class="col-4">Translation</th>
+                    <th class="col-2">Options</th>
+                </tr>
+                </thead>
+                <tbody v-for="(word, index) in words" :key="index">
+                    <listitem :word="word"></listitem>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </template>
 
 <script>
